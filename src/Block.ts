@@ -1,5 +1,4 @@
 import SHA256 from 'crypto-js/sha256';
-import { type } from 'os';
 
 type Timestamp = Number;
 type PreviewsHash = String;
