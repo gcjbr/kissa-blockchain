@@ -3,7 +3,7 @@ import SHA256 from 'crypto-js/sha256';
 type Timestamp = Number;
 type PreviewsHash = String;
 type Hash = String;
-type Data = any;
+export type Data = any;
 
 interface Block {
   timestamp: Timestamp;
@@ -31,10 +31,10 @@ class Block {
 
   static mineBlock(lastBlock: Block, data: Data): Block {
     const timestamp = Date.now();
-    const lastHash = lastBlock.hash;
-    const hash = Block.hash(timestamp, lastHash, data);
+    const previewsHash = lastBlock.hash;
+    const hash = Block.hash(timestamp, previewsHash, data);
 
-    return new this(timestamp, lastHash, hash, data);
+    return new this(timestamp, previewsHash, hash, data);
   }
 
   static hash(
@@ -43,6 +43,11 @@ class Block {
     data: Data
   ): Hash {
     return SHA256(`${timestamp}${previewsHash}${data}`).toString();
+  }
+
+  static blockHash(block: Block) {
+    const { timestamp, previewsHash, data } = block;
+    return Block.hash(timestamp, previewsHash, data);
   }
 
   toSring(): String {
