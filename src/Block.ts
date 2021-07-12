@@ -1,8 +1,8 @@
 import SHA256 from 'crypto-js/sha256';
 
 type Timestamp = Number;
-type PreviewsHash = String;
-type Hash = String;
+type PreviewsHash = string;
+type Hash = string;
 export type Data = any;
 
 interface Block {
@@ -50,7 +50,7 @@ class Block {
     return Block.hash(timestamp, previewsHash, data);
   }
 
-  toSring(): String {
+  toSring(): string {
     return `Block - 
       Timestamp----: ${this.timestamp}
       Previews Hash: ${this.previewsHash.substr(0, 15)}
