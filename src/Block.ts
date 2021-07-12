@@ -26,7 +26,7 @@ class Block {
   }
 
   static genesis(): Block {
-    return new this(Date.now(), '-----', '00000000000', []);
+    return new this(1594585177000, '-----', '00000000000', 0);
   }
 
   static mineBlock(lastBlock: Block, data: Data): Block {
