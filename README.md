@@ -1,3 +1,3 @@
 # 🐈‍⬛ Kissa-blockchain
 
-Just my atempt of understanding blockchain and crypto by creating my own.
+Just my atempt at understanding blockchain and crypto by creating my own.
